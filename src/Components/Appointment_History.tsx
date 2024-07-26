@@ -297,6 +297,7 @@ const Appointment_History = (props: any) => {
       let {data: res} = await getAppointmentById(
         props?.route?.params?.data._id,
       );
+      console.log(res.data + 'cnjnjndjfnj')
       console.log('hh', height);
       // Alert.alert(res?.data?.height);
       if (res.data) {
@@ -533,6 +534,26 @@ const Appointment_History = (props: any) => {
                   />
                 </View>
               </View>
+             
+              <View style={{width: wp(95), marginTop: hp(1)}}>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontFamily: mainFontBold,
+                    fontSize: hp(1.8),
+                  }}>
+                  Random Blood Sugar(RBS) mg/dl
+                </Text>
+                <TextInput
+                  onChangeText={e => setSuger3(e)}
+                  value={suger3}
+                  style={[styles.inputFildsstyls, {width: wp(95)}]}
+                  placeholder={
+                    isLoading ? 'Loading...' : 'Random Blood Sugar(RBS)'
+                  }
+                />
+              </View>
+
               <View style={{justifyContent: 'space-between', marginTop: hp(1)}}>
                 <View style={{width: wp(95)}}>
                   <Text
@@ -553,66 +574,7 @@ const Appointment_History = (props: any) => {
                   />
                 </View>
               </View>
-              <View style={{width: wp(95), marginTop: hp(1)}}>
-                <Text
-                  style={{
-                    color: 'black',
-                    fontFamily: mainFontBold,
-                    fontSize: hp(1.8),
-                  }}>
-                  Random Blood Sugar(RBS) mg/dl
-                </Text>
-                <TextInput
-                  onChangeText={e => setSuger3(e)}
-                  value={suger3}
-                  style={[styles.inputFildsstyls, {width: wp(95)}]}
-                  placeholder={
-                    isLoading ? 'Loading...' : 'Random Blood Sugar(RBS)'
-                  }
-                />
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  marginTop: hp(1),
-                }}>
-                <View style={{width: wp(45)}}>
-                  <Text
-                    style={{
-                      color: 'black',
-                      fontFamily: mainFontBold,
-                      fontSize: hp(1.8),
-                    }}>
-                    Fasting Sugar(FBS) mg/dl
-                  </Text>
-                  <TextInput
-                    onChangeText={e => setSuger2(e)}
-                    value={suger2}
-                    style={[styles.inputFildsstyls, {width: wp(45)}]}
-                    placeholder={
-                      isLoading ? 'Loading...' : 'Fasting Sugar (FBS)'
-                    }
-                  />
-                </View>
-                <View style={{width: wp(45)}}>
-                  <Text
-                    style={{
-                      color: 'black',
-                      fontFamily: mainFontBold,
-                      fontSize: hp(1.8),
-                    }}>
-                    Respiratory Rate(RR)
-                    <Text>(bpm)</Text>
-                  </Text>
-                  <TextInput
-                    onChangeText={e => setrr(e)}
-                    value={rr}
-                    style={[styles.inputFildsstyls, {width: wp(45)}]}
-                    placeholder={isLoading ? 'Loading...' : 'RR'}
-                  />
-                </View>
-              </View>
+            
               <View
                 style={{
                   flexDirection: 'row',
@@ -699,6 +661,49 @@ const Appointment_History = (props: any) => {
                       borderColor: 'gray',
                       borderWidth: 0.5,
                     }}
+                  />
+                </View>
+              </View>
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: hp(1),
+                }}>
+                <View style={{width: wp(45)}}>
+                  <Text
+                    style={{
+                      color: 'black',
+                      fontFamily: mainFontBold,
+                      fontSize: hp(1.8),
+                    }}>
+                    Fasting Sugar(FBS) mg/dl
+                  </Text>
+                  <TextInput
+                    onChangeText={e => setSuger2(e)}
+                    value={suger2}
+                    style={[styles.inputFildsstyls, {width: wp(45)}]}
+                    placeholder={
+                      isLoading ? 'Loading...' : 'Fasting Sugar (FBS)'
+                    }
+                  />
+                </View>
+                <View style={{width: wp(45)}}>
+                  <Text
+                    style={{
+                      color: 'black',
+                      fontFamily: mainFontBold,
+                      fontSize: hp(1.8),
+                    }}>
+                    Respiratory Rate(RR)
+                    <Text>(bpm)</Text>
+                  </Text>
+                  <TextInput
+                    onChangeText={e => setrr(e)}
+                    value={rr}
+                    style={[styles.inputFildsstyls, {width: wp(45)}]}
+                    placeholder={isLoading ? 'Loading...' : 'RR'}
                   />
                 </View>
               </View>

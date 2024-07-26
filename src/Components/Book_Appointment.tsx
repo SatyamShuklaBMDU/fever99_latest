@@ -310,6 +310,30 @@ const Book_Appointment = () => {
               Location
             </Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => setSlctdsec('language')}
+            style={{
+              height: hp(5),
+              marginRight: 10,
+              paddingLeft: wp(3),
+              paddingRight: wp(3),
+              backgroundColor: slctdsec == 'language' ? maincolor : '#F1F8FF',
+              justifyContent: 'center',
+              borderRadius: 5,
+              borderColor: maincolor,
+              borderWidth: slctdsec == 'language' ? 0 : 0.8,
+            }}>
+            <Text
+              style={{
+                color: slctdsec == 'language' ? 'white' : maincolor,
+                fontFamily: mainFont,
+                fontSize: hp(1.8),
+              }}>
+              Language
+            </Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             onPress={() => setSlctdsec('gender')}
             style={{
@@ -470,8 +494,9 @@ const Book_Appointment = () => {
               labelField="label"
               valueField="value"
               placeholder="Select Specialization"
+              search
               value={specialization}
-              onChange={(item: any) => {
+              onChange={(item) => {
                 setSpecialisation(item);
               }}
               renderLeftIcon={() => (
@@ -651,13 +676,12 @@ const Book_Appointment = () => {
                   labelField="label"
                   valueField="value"
                   placeholder="Select One"
+                  search
                   value={city}
                   onFocus={() => setIsFocus(true)}
                   onBlur={() => setIsFocus(false)}
-                  onChange={(item: any) => {
-                    setCityArr([
-                      ...item.cities.map((el: any) => ({label: el, value: el})),
-                    ]);
+                  onChange={(item) => {
+                    setCityArr(item.cities.map((el) => ({ label: el, value: el })));
                     setIsFocus(false);
                   }}
                 />
@@ -700,6 +724,7 @@ const Book_Appointment = () => {
               }}></View>
           </View>
         )}
+
         <View
           style={{
             flexDirection: 'row',

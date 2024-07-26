@@ -51,7 +51,9 @@ import Mans_icons from 'react-native-vector-icons/Entypo';
 import Status_icons from 'react-native-vector-icons/FontAwesome6';
 import Calendar_icons from 'react-native-vector-icons/FontAwesome5';
 import Walkink_Video_icons from 'react-native-vector-icons/FontAwesome5';
+import Gender from 'react-native-vector-icons/MaterialCommunityIcons'
 import FeedBack from '../allModals/FeedBack';
+
 
 import {useNetInfo} from '@react-native-community/netinfo'; // <--- internet connection
 import InterNetError from '../noInterNet/InterNetError';
@@ -993,6 +995,25 @@ const Appointment = (proper: any) => {
                           : item?.age > 0 || item?.months > 0
                           ? `${item?.months} Month`
                           : ''}
+                      </Text>
+                    </View>
+
+                    <View
+                      style={[
+                        styles.common_displayFlex,
+                        {justifyContent: 'space-between'},
+                      ]}>
+                      <View
+                        style={[styles.common_displayFlex, {width: wp(50)}]}>
+                        <Gender name="gender-male-female" style={styles.iconsStyls} />
+                        <Text style={{fontSize: hp(2)}}>Sex:</Text>
+                      </View>
+                      <Text
+                        style={{
+                          color: 'gray',
+                          fontSize: hp(1.8),
+                        }}>
+                        {item.gender}
                       </Text>
                     </View>
                     <View
